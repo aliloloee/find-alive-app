@@ -1,1 +1,1 @@
-web:gunicorn findAlives.wsgi
+web: gunicorn findAlives.wsgi
