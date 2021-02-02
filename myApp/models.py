@@ -23,8 +23,8 @@ from customUser.models import MyUser
 ## all validations must be done also in serializers beacause of the api
 
 class Coordinates (models.Model) :
-    lattitude = models.DecimalField(max_digits=6, decimal_places=4, blank=False)
-    longitude = models.DecimalField(max_digits=7, decimal_places=4, blank=False)
+    lattitude = models.DecimalField(max_digits=8, decimal_places=6, blank=False)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=False)
     heartRate = models.IntegerField(null=True, blank=True)
     person = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     created_at = models.DateTimeField(null=True, blank=True)
