@@ -38,10 +38,10 @@ def get_final_coordinates(request) :
     for userName in userNames :
         try :
             coord = Coordinates.objects.filter(person__user_name = userName).latest('created_at')
+            all_coords.append(coord)
         except :
             pass
-        all_coords.append(coord)
-        all_coords = list(dict.fromkeys(all_coords))
+    all_coords = list(dict.fromkeys(all_coords))
     ser = CoordinateInfoSerializers(all_coords, many=True)
 
     return Response(ser.data, status=status.HTTP_200_OK)
