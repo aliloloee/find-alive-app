@@ -100,8 +100,12 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dafq4bbe81b023',
+        'USER' : 'vuqiupsqedngql',
+        'PASSWORD' : '69d6e3a580b69444d15ee29e638c333e16bb8a55c8db981da72d16068f20c1b5',
+        'HOST' : 'ec2-54-86-189-179.compute-1.amazonaws.com',
+        'PORT' : '5432'
     }
 }
 
