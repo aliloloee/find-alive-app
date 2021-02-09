@@ -6,7 +6,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from .serializers import UserSerializer, CoordinateSerializers, CoordinateInfoSerializers
 from .models import Coordinates
-from .permissions import IsSuper, IsOwner
+from .permissions import IsSuper, IsOwner, IsStaff
 from customUser.models import MyUser
 
 
@@ -31,7 +31,7 @@ def get_all_coordinates(request) :
     return Response(ser.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
-@permission_classes((IsSuper, IsAuthenticated))
+@permission_classes((IsStaff, IsAuthenticated))
 def get_final_coordinates(request) :
     userNames = MyUser.objects.values_list('user_name', flat=True)
     all_coords = []
