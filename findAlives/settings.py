@@ -1,4 +1,5 @@
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +10,7 @@ STATIC_DIR = BASE_DIR / 'static'
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3k!(8c0s_7d%r7nd)gkm87%n7&9n0ni#15gpf2nj_67246fb%1'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -101,10 +102,10 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dafq4bbe81b023',
-        'USER' : 'vuqiupsqedngql',
-        'PASSWORD' : '69d6e3a580b69444d15ee29e638c333e16bb8a55c8db981da72d16068f20c1b5',
-        'HOST' : 'ec2-54-86-189-179.compute-1.amazonaws.com',
+        'NAME': config('NAME'),
+        'USER' : config('USER'),
+        'PASSWORD' : config('PASSWORD'),
+        'HOST' : config('HOST'),
         'PORT' : '5432'
     }
 }
